@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>StudentHub | Academic Management</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">🎓 <span>StudentHub</span></div>
+    <p class="muted small">ACADEMIC MANAGEMENT</p>
+    <button class="nav active" data-page="dashboard">▦ Dashboard</button>
+    <button class="nav" data-page="students">♙ Students</button>
+    <button class="nav" data-page="courses">▤ Courses</button>
+    <button class="nav" data-page="attendance">✓ Attendance</button>
+    <button class="nav" data-page="marks">★ Marks & Results</button>
+    <div class="side-bottom"><span class="status-dot"></span> Demo mode · Local storage</div>
+  </aside>
+  <main>
+    <header><div><p class="muted small">STUDENT RECORD AND ACADEMIC MANAGEMENT PLATFORM</p><h1 id="pageTitle">Dashboard</h1></div><button class="btn light" id="exportBtn">Export Data</button></header>
+    <section id="dashboard" class="page active">
+      <div class="cards">
+        <div class="card"><p>Total Students</p><strong id="studentCount">0</strong><span>Registered records</span></div>
+        <div class="card"><p>Total Courses</p><strong id="courseCount">0</strong><span>Available courses</span></div>
+        <div class="card"><p>Attendance Entries</p><strong id="attendanceCount">0</strong><span>Saved records</span></div>
+        <div class="card"><p>Marks Entries</p><strong id="marksCount">0</strong><span>Academic results</span></div>
+      </div>
+      <div class="panel"><div class="panel-head"><h2>Welcome to StudentHub</h2><span class="badge">MVP Prototype</span></div>
+      <p>Manage student profiles, courses, attendance and academic marks from one simple dashboard.</p>
+      <div class="notice"><b>Demo note:</b> Data is saved in this browser using Local Storage. This prototype does not use a live server or production authentication.</div>
+      <h3>Quick start</h3><ol><li>Add a student from the Students section.</li><li>Add a course in Courses.</li><li>Record attendance and enter marks.</li><li>Export your data as a JSON backup.</li></ol></div>
+    </section>
+    <section id="students" class="page">
+      <div class="panel"><h2>Add Student</h2><form id="studentForm" class="form-grid">
+        <input id="sName" placeholder="Student full name" required><input id="sRoll" placeholder="Roll number" required>
+        <input id="sEmail" type="email" placeholder="Email address"><input id="sDept" placeholder="Department / Class">
+        <button class="btn" type="submit">Add Student</button>
+      </form></div>
+      <div class="panel"><div class="panel-head"><h2>Student Records</h2><input id="studentSearch" class="search" placeholder="Search by name or roll no."></div><div class="table-wrap"><table><thead><tr><th>Name</th><th>Roll No.</th><th>Email</th><th>Department</th><th>Action</th></tr></thead><tbody id="studentRows"></tbody></table></div></div>
+    </section>
+    <section id="courses" class="page">
+      <div class="panel"><h2>Add Course</h2><form id="courseForm" class="form-grid"><input id="cName" placeholder="Course name" required><input id="cCode" placeholder="Course code" required><input id="cFaculty" placeholder="Faculty name"><button class="btn" type="submit">Add Course</button></form></div>
+      <div class="panel"><h2>Course List</h2><div class="table-wrap"><table><thead><tr><th>Course</th><th>Code</th><th>Faculty</th><th>Action</th></tr></thead><tbody id="courseRows"></tbody></table></div></div>
+    </section>
+    <section id="attendance" class="page">
+      <div class="panel"><h2>Record Attendance</h2><form id="attendanceForm" class="form-grid"><select id="aStudent" required></select><select id="aCourse" required></select><input id="aDate" type="date" required><select id="aStatus"><option>Present</option><option>Absent</option></select><button class="btn" type="submit">Save Attendance</button></form></div>
+      <div class="panel"><h2>Attendance Records</h2><div class="table-wrap"><table><thead><tr><th>Student</th><th>Course</th><th>Date</th><th>Status</th><th>Action</th></tr></thead><tbody id="attendanceRows"></tbody></table></div></div>
+    </section>
+    <section id="marks" class="page">
+      <div class="panel"><h2>Enter Marks</h2><form id="marksForm" class="form-grid"><select id="mStudent" required></select><select id="mCourse" required></select><input id="mScore" type="number" min="0" max="100" placeholder="Marks (0-100)" required><button class="btn" type="submit">Save Marks</button></form></div>
+      <div class="panel"><h2>Academic Results</h2><div class="table-wrap"><table><thead><tr><th>Student</th><th>Course</th><th>Marks</th><th>Grade</th><th>Action</th></tr></thead><tbody id="marksRows"></tbody></table></div></div>
+    </section>
+    <footer>StudentHub · Agile Mini Project · Educational demonstration</footer>
+  </main>
+</div><script src="script.js"></script>
+</body></html>
